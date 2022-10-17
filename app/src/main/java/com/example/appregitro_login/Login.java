@@ -18,25 +18,19 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class Login extends AppCompatActivity {
-    public static List<MyInfo> list;
-    public static String TAG = "mensaje";
-    public static String json = null;
-    private EditText nomUserLogin, passwordL;
-    public static final String archivo = "info.json";
+import kotlin.LateinitKt;
 
-    private Button buttonL, buttonR, buttonF;
+public class Login extends AppCompatActivity {
+    Button buttonF, buttonL,  buttonR;
+    private EditText user, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        buttonL = findViewById(R.id.buttonL);
-        buttonR = findViewById(R.id.buttonR);
         buttonF = findViewById(R.id.buttonF);
-        nomUserLogin = findViewById(R.id.nomUserLogin);
-        passwordL = findViewById(R.id.passwordL);
-        ReadData();
+        user = (EditText) findViewById(R.id.nomUserLogin);
+        password = (EditText) findViewById(R.id.passwordL);
 
         buttonF.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,69 +40,24 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
     public void buttonR (View view){
         Intent buttonR = new Intent(this, Registro.class);
         startActivity(buttonR);
     }
 
-    private void ReadData(){
-        buttonL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (nomUserLogin.getText().length() == 0){
-                    Toast.makeText( getApplicationContext() , "Campo vacio, favor de llenar" , Toast.LENGTH_LONG ).show();
-                    return;
-                }
-                if (passwordL.getText().length() == 0){
-                    Toast.makeText( getApplicationContext() , "Campo vacio, favor de llenar" , Toast.LENGTH_LONG ).show();
-                    return;
-                }
-                if (writeFile(nomUserLogin.getText().toString())){
-                    nomUserLogin.setText("");
-                    return;
-                }
-                if (writeFile(passwordL.getText().toString())){
-                    passwordL.setText("");
-                }
-            }
-        });
-    }
+    public void Registrar(View view){
+        String nomUser = user.getText().toString();
+        String passpass = password.getText().toString();
 
-    private boolean writeFile(String text){
-        File file = null;
-        FileOutputStream fileOutputStream = null;
-        try
-        {
-            file = getFile();
-            fileOutputStream = new FileOutputStream( file );
-            fileOutputStream.write( text.getBytes(StandardCharsets.UTF_8) );
-            fileOutputStream.close();
-            return true;
+        if (nomUser.length() == 0){
+            Toast.makeText(this, "Ingresa tu nombre de usuario", Toast.LENGTH_LONG).show();
         }
-        catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
+        if (passpass.length()==0){
+            Toast.makeText(this, "Ingresa una contraseña", Toast.LENGTH_LONG).show();
         }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
-    private File getFile( )
-    {
-        return new File( getDataDir() , archivo );
-    }
-
-    private boolean isFileExits( )
-    {
-        File file = getFile( );
-        if( file == null )
-        {
-            return false;
+        if (nomUser.length() !=0 && passpass.length() != 0 ){
+            Toast.makeText(this, "Ingresando", Toast.LENGTH_LONG).show();
         }
-        return file.isFile() && file.exists();
     }
 }
