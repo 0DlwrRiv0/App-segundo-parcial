@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AppRegitro_Login</string>
+    <string name="nomUser">Nombre de Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="registro">Registrate</string>
+    <string name="forgot">Olvide mi contraseña</string>
+    <string name="email">Email</string>
+    <string name="phone">Número Telefónico</string>
+    <string name="date">Fecha de Nacimiento</string>
+    <string name="rb1">Femenino</string>
+    <string name="rb2">Masculino</string>
+</resources>
