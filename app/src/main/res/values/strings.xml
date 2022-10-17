@@ -5,9 +5,17 @@
     <string name="login">Iniciar sesión</string>
     <string name="registro">Registrate</string>
     <string name="forgot">Olvide mi contraseña</string>
+
+    //Registro//
+    <string name="nomUserRegistro">Nombre de Usuario</string>
     <string name="email">Email</string>
+    <string name="passwordRegistro">Contraseña</string>
     <string name="phone">Número Telefónico</string>
     <string name="date">Fecha de Nacimiento</string>
+    <string name="edad">Edad</string>
     <string name="rb1">Femenino</string>
     <string name="rb2">Masculino</string>
+    <string name="guardar">Guardar información</string>
+    <string name="hp">Always...</string>
+
 </resources>

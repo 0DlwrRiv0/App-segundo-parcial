@@ -7,7 +7,8 @@
         <entry key="..\:/AppRegitro_Login/app/src/main/res/drawable/custom2.xml" value="0.1745" />
         <entry key="..\:/AppRegitro_Login/app/src/main/res/layout/activity_login.xml" value="0.21" />
         <entry key="..\:/AppRegitro_Login/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/AppRegitro_Login/app/src/main/res/layout/activity_registro.xml" value="0.233502538071066" />
+        <entry key="..\:/AppRegitro_Login/app/src/main/res/layout/activity_olvide_contra.xml" value="0.25" />
+        <entry key="..\:/AppRegitro_Login/app/src/main/res/layout/activity_registro.xml" value="0.5" />
       </map>
     </option>
   </component>
