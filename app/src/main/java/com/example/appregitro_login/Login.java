@@ -23,6 +23,7 @@ import kotlin.LateinitKt;
 public class Login extends AppCompatActivity {
     Button buttonF, buttonL,  buttonR;
     private EditText user, password;
+    public static final String archivo = "info.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +60,43 @@ public class Login extends AppCompatActivity {
         if (nomUser.length() !=0 && passpass.length() != 0 ){
             Toast.makeText(this, "Ingresando", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private File getFile( )
+    {
+        return new File( getDataDir() , archivo );
+    }
+
+    private boolean isFileExits( )
+    {
+        File file = getFile( );
+        if( file == null )
+        {
+            return false;
+        }
+        return file.isFile() && file.exists();
+    }
+
+    private boolean writeFile(String text)
+    {
+        File file = null;
+        FileOutputStream fileOutputStream = null;
+        try
+        {
+            file = getFile();
+            fileOutputStream = new FileOutputStream( file );
+            fileOutputStream.write( text.getBytes(StandardCharsets.UTF_8) );
+            fileOutputStream.close();
+            return true;
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
