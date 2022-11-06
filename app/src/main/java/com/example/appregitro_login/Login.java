@@ -16,12 +16,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
-import kotlin.LateinitKt;
+public abstract class Login extends AppCompatActivity implements View.OnClickListener {
 
-public class Login extends AppCompatActivity {
-    Button buttonF, buttonL,  buttonR;
+    private Button button;
+    private Button buttonF, buttonL,  buttonR;
     private EditText user, password;
     public static final String archivo = "info.json";
 
@@ -36,14 +35,26 @@ public class Login extends AppCompatActivity {
         buttonF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this,OlvideContra.class);
-                startActivity(intent);
+                Intent intentAc = new Intent(Login.this,OlvideContra.class);
+                startActivity(intentAc);
             }
         });
+        button = findViewById(R.id.buttonId);
+        button.setOnClickListener(this);
     }
-    public void buttonR (View view){
-        Intent buttonR = new Intent(this, Registro.class);
-        startActivity(buttonR);
+    @Override
+    public void onClick(View v)
+    {
+        Intent intent = new Intent( getBaseContext() , Activity2.class );
+        MyInfo testJson = new MyInfo();
+        testJson.setNumTel( (int)(Math.random()*100));
+        testJson.setContraseña( String.format("Contraseña %d" , (int)(Math.random()*10)));
+        testJson.setUser(String.format("Nombre %d" , (int)(Math.random()*7777)));
+        testJson.setEmail(String.format("Email %d" , (int)(Math.random()*7777)));
+        testJson.setFecha((int)(Math.random()*10));
+        intent.putExtra( "hola" , String.format("Hola mundo %d" , (int)(Math.random()*1000) ) );
+        intent.putExtra( "testJson" , testJson );
+        startActivity( intent );
     }
 
     public void Registrar(View view){
@@ -99,4 +110,5 @@ public class Login extends AppCompatActivity {
         }
         return false;
     }
+
 }

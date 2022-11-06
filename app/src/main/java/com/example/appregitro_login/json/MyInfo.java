@@ -1,37 +1,59 @@
 package com.example.appregitro_login.json;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class MyInfo implements Serializable {
     private String user;
     private String email;
-    private String password;
-    private String phone;
-    private String fecha;
-    private String edad;
-    private String sexo;
+    private String contraseña;
+    private Integer numTel;
+    private Integer fecha;
 
-    public String getUser(){return user;}
-    public void setUser(String user){this.user = user;}
+    public MyInfo() {
+    }
 
-    public String getEmail(){return email;}
-    public void setEmail(String email){this.email = email;}
+    public String getUser() {
+        return user;
+    }
 
-    public String getPassword(){return password;}
-    public void setPassword(String password){this.password = password;}
+    public void setUser(String user) {
+        this.user = user;
+    }
 
-    public String getPhone(){return phone;}
-    public void setPhone(String phone){this.phone = phone;}
+    public String getEmail() {
+        return email;
+    }
 
-    public String getFecha(){return fecha;}
-    public void setFecha(String fecha){this.fecha = fecha;}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public String getEdad(){return edad;}
-    public void setEdad(String edad){this.edad = edad;}
+    public String getContraseña() {
+        return contraseña;
+    }
 
-    public String getSexo(){return sexo;}
-    public void setSexo(String sexo){this.sexo = sexo;}
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
 
+    public Integer getNumTel() {
+        return numTel;
+    }
+
+    public void setNumTel(Integer numTel) {
+        this.numTel = numTel;
+    }
+
+    public Integer getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Integer fecha) {
+        this.fecha = fecha;
+    }
 }
+
+
 
 
